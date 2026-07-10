@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Diva Benidorm — Auténtica cocina italiana premium. Pizzas artesanales, pastas frescas y una experiencia gastronómica única en Benidorm, España.">
+  <meta name="keywords"
+    content="pizza Benidorm, restaurante italiano Benidorm, cocina italiana premium, Diva Benidorm, pizzería artesanal">
+  <meta name="author" content="Grupo Diva">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diva Benidorm — Cocina Italiana Premium">
+  <meta property="og:description"
+    content="Auténtica cocina italiana, elaborada con pasión y los mejores ingredientes. Ven y disfruta en nuestras 6 ubicaciones en Benidorm.">
+  <meta property="og:image" content="pizza.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+
+  <title>Diva Benidorm — Cocina Italiana Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grupo Diva",
+    "description": "Grupo de pizzerías italianas premium en Benidorm, España",
+    "url": "https://divabenidorm.com",
+    "telephone": "+34650904402",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plaza de la Creu Alameda 13",
+      "addressLocality": "Benidorm",
+      "postalCode": "03502",
+      "addressCountry": "ES"
+    },
+    "subOrganization": [
+      {
+        "@type": "Restaurant",
+        "name": "Diva 8",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Gerona 8",
+          "addressLocality": "Benidorm",
+          "postalCode": "03503",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Casa Diva",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Tomás Ortuño 56",
+          "addressLocality": "Benidorm",
+          "postalCode": "03501",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Diva Club",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avda. del Mediterráneo 19",
+          "addressLocality": "Benidorm",
+          "postalCode": "03503",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Pizzería Diva",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza de la Creu Alameda 13",
+          "addressLocality": "Benidorm",
+          "postalCode": "03502",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Diva 15",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Gerona 15",
+          "addressLocality": "Benidorm",
+          "postalCode": "03503",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Diva 13",
+        "servesCuisine": "Italian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza de la Creu Alameda 13",
+          "addressLocality": "Benidorm",
+          "postalCode": "03502",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34650904402",
+        "openingHours": "Mo-Su 12:00-00:00"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SPLASH TRIGGER (Fake Scroll Area for GSAP)
+       ============================================================ -->
+  <div id="splash-trigger"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 200vh; pointer-events: none; z-index: 0;"></div>
+
+  <!-- ============================================================
+       SPLASH CURTAIN
+       ============================================================ -->
+  <div id="splash-curtain" class="splash-curtain" role="dialog" aria-modal="true" aria-label="Pantalla de bienvenida">
+    <img src="Grupo-diva-logo-white.png" alt="Diva Benidorm" class="splash-screen__logo" width="220" height="70">
+    <div class="splash-screen__indicator">
+      <span class="splash-screen__hint">DESLIZA PARA DESCUBRIR</span>
+      <div class="splash-screen__line"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+         HEADER
+         ============================================================ -->
+  <header class="header" id="header" role="banner">
+    <div class="header__inner">
+      <a href="#inicio" class="header__logo" aria-label="Diva Benidorm — Inicio">
+        <img src="Grupo-diva-logo-white.png" alt="Grupo Diva Logo" width="140" height="44">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Navegación principal">
+        <a href="#inicio" class="header__link is-active" data-nav>Inicio</a>
+        <a href="#esencia" class="header__link" data-nav>Nuestra Esencia</a>
+        <a href="#menu" class="header__link" data-nav>Menú</a>
+        <a href="#diva-bar" class="header__link" data-nav>Diva Bar</a>
+        <a href="#ubicaciones" class="header__link" data-nav>Ubicaciones</a>
+        <a href="#contacto" class="header__link" data-nav>Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn btn--outline-dark header__cta desktop-only">Reservar</a>
+
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
+    <div class="mobile-nav__backdrop" id="mobile-nav-backdrop"></div>
+    <div class="mobile-nav__panel">
+      <a href="#inicio" class="mobile-nav__link" data-mobile-nav>Inicio</a>
+      <a href="#esencia" class="mobile-nav__link" data-mobile-nav>Nuestra Esencia</a>
+      <a href="#menu" class="mobile-nav__link" data-mobile-nav>Menú</a>
+      <a href="#diva-bar" class="mobile-nav__link" data-mobile-nav>Diva Bar</a>
+      <a href="#ubicaciones" class="mobile-nav__link" data-mobile-nav>Ubicaciones</a>
+      <a href="#contacto" class="mobile-nav__link" data-mobile-nav>Contacto</a>
+      <a href="#contacto" class="btn btn--primary" style="margin-top: 16px;">Reservar</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO – Smooth Scroll Reveal
+       ============================================================ -->
+  <section class="hero" id="inicio" aria-label="Inicio" data-scroll-height="2000" data-clip-start="30"
+    data-clip-end="70">
+
+    <div class="hero__sticky">
+      <div class="hero__bg hero__bg--desktop" role="img" aria-label="Pizza artesanal italiana"></div>
+      <div class="hero__bg hero__bg--mobile" role="img" aria-label="Pizza artesanal italiana"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content hero__split">
+        <div class="hero__text">
+          <h1 class="hero__title">
+            No solo hacemos <span class="gold">pizza</span>,<br>
+            te hacemos feliz
+          </h1>
+          <p class="hero__subtitle">
+            Auténtica cocina italiana, elaborada con pasión y los mejores ingredientes.<br>
+            Ven y disfruta.
+          </p>
+          <div class="hero__buttons">
+            <a href="#menu" class="btn btn--primary">Explorar Menú</a>
+            <a href="#contacto" class="btn btn--outline">Reservar Mesa</a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <div class="hero__pizza-wrapper">
+            <img src="hero.png" alt="Pizza Premium Diva Benidorm" class="hero__pizza-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NUESTRA ESENCIA
+       ============================================================ -->
+  <section class="section esencia" id="esencia" aria-label="Nuestra Esencia">
+    <div class="container">
+      <h2 class="section__title esencia__reveal-title" data-animate><span class="reveal-text">Conócenos</span></h2>
+      <hr class="section__line" data-animate>
+
+      <div class="esencia__grid">
+        <!-- Comida de calidad -->
+        <div class="esencia__item" data-animate>
+          <div class="esencia__icon">
+            <!-- Lucide: Cherry (food/quality icon) -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
+              <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
+              <path d="M7 14c3.22-2.91 4.29-8.75 5.72-12.74" />
+              <path d="M17 14c0-5.34-.93-8.85-4-11.66" />
+              <path d="M22 9c-4.29 0-7.14-2.33-10-7" />
+            </svg>
+          </div>
+          <h3>Comida de calidad</h3>
+          <p>Recetas originales con ingredientes seleccionados uno a uno.</p>
+        </div>
+
+        <!-- Pasión italiana -->
+        <div class="esencia__item" data-animate>
+          <div class="esencia__icon">
+            <!-- Lucide: Leaf -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+          </div>
+          <h3>Pasión italiana</h3>
+          <p>Cada plato cuenta una historia de tradición y amor por la cocina.</p>
+        </div>
+
+        <!-- Servicio excepcional -->
+        <div class="esencia__item" data-animate>
+          <div class="esencia__icon">
+            <!-- Lucide: Wine -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 22h8" />
+              <path d="M7 10h10" />
+              <path d="M12 15v7" />
+              <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
+            </svg>
+          </div>
+          <h3>Servicio excepcional</h3>
+          <p>Una experiencia que va más allá del plato, pensada para ti.</p>
+        </div>
+      </div>
+
+      <p class="esencia__quote" data-animate>
+        Sumérgete en la auténtica experiencia italiana. Te esperamos con los sabores más genuinos,
+        un ambiente cálido y un servicio excepcional. Ven y déjate sorprender.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NUESTRA TRADICIÓN (RUEDA)
+       ============================================================ -->
+  <section class="section tradicion" id="tradicion" aria-label="Nuestra Tradición">
+    <div class="container">
+      <h2 class="section__title" data-animate>Nuestra Tradición</h2>
+      <hr class="section__line" data-animate>
+
+      <div class="tradition-wheel" id="tradition-wheel" data-animate>
+        <!-- Anillo decorativo -->
+        <div class="tradition-wheel__ring"></div>
+
+        <!-- Centro de la rueda -->
+        <div class="tradition-wheel__center">
+          <div class="tradition-wheel__center-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589c-.26 0-.51.051-.74.144A5.5 5.5 0 0 0 5.253 9.444 4 4 0 0 0 4 17c0 1.104.896 2 2 2h11Z" />
+              <path d="M12 21v-4" />
+              <path d="M7 21v-4" />
+            </svg>
+          </div>
+          <span class="tradition-wheel__center-text">Tradición</span>
+        </div>
+
+        <div id="tradition-rotator" class="tradition-wheel__rotator">
+          <!-- Líneas conectoras SVG -->
+          <svg class="tradition-wheel__svg" width="100%" height="100%" id="tradition-svg">
+            <!-- Las líneas se inyectarán vía JS -->
+          </svg>
+
+          <!-- Nodos y Tarjetas (se inyectan vía JS) -->
+          <div id="tradition-nodes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MENÚ / NUESTRA TRADICIÓN (Sección de fotos/menú original)
+       ============================================================ -->
+  <section class="section menu-section" id="menu" aria-label="Menú">
+    <div class="container">
+      <div class="menu__grid">
+        <!-- Left: Image with parallax -->
+        <div class="menu__image-wrapper" data-animate>
+          <img src="pizza3.jpg" alt="Pizza artesanal Diva con ingredientes frescos" loading="lazy" id="parallax-image">
+        </div>
+
+        <!-- Right: Content & Cards -->
+        <div class="menu__content">
+          <h2 data-animate>Menú</h2>
+          <hr class="section__line" data-animate>
+          <p class="menu__intro" data-animate>
+            Cada receta es un homenaje a la cocina italiana más auténtica, preparada con ingredientes
+            de primera calidad y el cariño que solo la tradición puede ofrecer.
+          </p>
+
+          <div class="menu__cards">
+            <div class="menu-card" data-animate>
+              <h4>Pizzas</h4>
+              <p>Deléitate con nuestras pizzas artesanales, masa fresca, ingredientes de calidad y el auténtico sabor
+                italiano.</p>
+            </div>
+            <div class="menu-card" data-animate>
+              <h4>Pastas</h4>
+              <p>Pastas frescas elaboradas con pasión y recetas tradicionales italianas. Sabor auténtico en cada plato.
+              </p>
+            </div>
+            <div class="menu-card" data-animate>
+              <h4>Carnes</h4>
+              <p>Selección de carnes a la parrilla y platos tradicionales italianos con ingredientes de primera calidad.
+              </p>
+            </div>
+            <div class="menu-card" data-animate>
+              <h4>Gin &amp; Tonics</h4>
+              <p>Selección exclusiva de Gin &amp; Tonics premium, preparados con pasión y creatividad. Una experiencia
+                sofisticada.</p>
+            </div>
+          </div>
+
+          <a href="#" class="btn btn--outline-dark" data-animate>Ver Carta Completa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DIVA BAR
+       ============================================================ -->
+  <section class="diva-bar" id="diva-bar" aria-label="Diva Bar">
+    <div class="diva-bar__bg" role="img" aria-label="Interior del Diva Bar"></div>
+    <div class="diva-bar__overlay"></div>
+
+    <div class="diva-bar__content" data-animate>
+      <h2>Diva Bar</h2>
+      <p>
+        Descubre nuestra selección exclusiva de Gin &amp; Tonics premium, preparados con pasión
+        y creatividad. Desde los clásicos hasta combinaciones únicas, cada copa es una experiencia
+        refrescante y sofisticada.
+      </p>
+      <a href="#" class="btn btn--red">Explorar Coctelería</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       UBICACIONES
+       ============================================================ -->
+  <section class="section ubicaciones" id="ubicaciones" aria-label="Ubicaciones">
+    <div class="container">
+      <h2 class="section__title" data-animate>Cómo encontrarnos</h2>
+      <p class="section__subtitle" data-animate>Trabajamos para ti todos los días</p>
+
+      <!-- Gallery -->
+      <div class="ubicaciones__gallery" data-animate>
+        <div class="gallery__item">
+          <img src="local.jpeg" alt="Interior restaurante Diva — Ambiente acogedor" loading="lazy">
+        </div>
+        <div class="gallery__item">
+          <img src="local1.jpg" alt="Interior restaurante Diva — Barra y salón" loading="lazy">
+        </div>
+        <div class="gallery__item">
+          <img src="local2.jpg" alt="Interior restaurante Diva — Detalle decoración" loading="lazy">
+        </div>
+        <div class="gallery__item">
+          <img src="local3.jpg" alt="Interior restaurante Diva — Zona de mesas" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Location Cards -->
+      <div class="ubicaciones__cards">
+        <!-- Diva 8 -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Diva 8</h3>
+          <p class="location-card__address">Calle Gerona 8, 03503 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+
+        <!-- Casa Diva -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Casa Diva</h3>
+          <p class="location-card__address">Calle Tomás Ortuño 56, 03501 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+
+        <!-- Diva Club -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Diva Club</h3>
+          <p class="location-card__address">Avda. del Mediterráneo 19, 03503 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+
+        <!-- Pizzería Diva -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Pizzería Diva</h3>
+          <p class="location-card__address">Plaza de la Creu Alameda 13, 03502 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+
+        <!-- Diva 15 -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Diva 15</h3>
+          <p class="location-card__address">Calle Gerona 15, 03503 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+
+        <!-- Diva 13 -->
+        <div class="location-card" data-animate>
+          <h3 class="location-card__name">Diva 13</h3>
+          <p class="location-card__address">Plaza de la Creu Alameda 13, 03502 Benidorm</p>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>12:00 – 00:00</span>
+          </div>
+          <div class="location-card__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href="tel:+34650904402">650 904 402</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="ubicaciones__map" data-animate>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3126.5!2d-0.1308!3d38.5411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMyJzI4LjAiTiAwwrAwNyc1MS4wIlc!5e0!3m2!1ses!2ses!4v1700000000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de ubicaciones Diva Benidorm">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACTO / RESERVAS
+       ============================================================ -->
+  <section class="section contacto" id="contacto" aria-label="Contacto y Reservas">
+    <div class="container">
+      <div class="contacto__grid">
+        <!-- Left: Form -->
+        <div class="contacto__form-wrapper">
+          <h2 data-animate>Reserva tu mesa</h2>
+          <hr class="section__line" data-animate>
+
+          <form class="form" id="reservation-form" novalidate data-animate>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="form-name">Nombre</label>
+                <input type="text" id="form-name" name="name" placeholder="Tu nombre" required aria-required="true">
+              </div>
+              <div class="form__group">
+                <label for="form-email">Email</label>
+                <input type="email" id="form-email" name="email" placeholder="tu@email.com" required
+                  aria-required="true">
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="form-phone">Teléfono</label>
+                <input type="tel" id="form-phone" name="phone" placeholder="+34 600 000 000" required
+                  aria-required="true">
+              </div>
+              <div class="form__group">
+                <label for="form-local">Local</label>
+                <select id="form-local" name="local" required aria-required="true">
+                  <option value="" disabled selected>Selecciona un local</option>
+                  <option value="diva-8">Diva 8</option>
+                  <option value="casa-diva">Casa Diva</option>
+                  <option value="diva-club">Diva Club</option>
+                  <option value="pizzeria-diva">Pizzería Diva</option>
+                  <option value="diva-15">Diva 15</option>
+                  <option value="diva-13">Diva 13</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="form-date">Fecha</label>
+                <input type="date" id="form-date" name="date" required aria-required="true">
+              </div>
+              <div class="form__group">
+                <label for="form-time">Hora</label>
+                <input type="time" id="form-time" name="time" required aria-required="true">
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="form-message">Mensaje</label>
+              <textarea id="form-message" name="message" placeholder="Número de personas, peticiones especiales..."
+                rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--red form__submit">Solicitar Reserva</button>
+          </form>
+
+          <div class="form__success" id="form-success" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span>Solicitud enviada correctamente. Nos pondremos en contacto contigo pronto.</span>
+          </div>
+        </div>
+
+        <!-- Right: Image + Social -->
+        <div class="contacto__image-wrapper" data-animate>
+          <img src="gente.jpg" alt="Ambiente íntimo en restaurante Diva Benidorm" loading="lazy">
+
+          <div class="contacto__social">
+            <!-- Instagram -->
+            <a href="https://instagram.com/divabenidorm" target="_blank" rel="noopener noreferrer"
+              aria-label="Síguenos en Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com/divabenidorm" target="_blank" rel="noopener noreferrer"
+              aria-label="Síguenos en Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@divabenidorm" target="_blank" rel="noopener noreferrer"
+              aria-label="Síguenos en TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand -->
+        <div class="footer__brand">
+          <img src="Grupo-diva-logo-white.png" alt="Grupo Diva Logo" width="120" height="38" loading="lazy">
+          <p>Cocina italiana tradicional con alma premium. Una experiencia gastronómica única en el corazón de Benidorm.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer__heading">Enlaces</h4>
+          <ul class="footer__links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#ubicaciones">Ubicaciones</a></li>
+            <li><a href="#diva-bar">Diva Bar</a></li>
+            <li><a href="#contacto">Reservas</a></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="footer__heading">Síguenos</h4>
+          <div class="footer__social">
+            <a href="https://instagram.com/divabenidorm" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com/divabenidorm" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@divabenidorm" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2025. Diva Benidorm</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       WHATSAPP FLOATING BUTTON
+       ============================================================ -->
+  <a href="https://wa.me/34650904402" target="_blank" rel="noopener noreferrer" class="whatsapp"
+    aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
