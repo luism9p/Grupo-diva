@@ -22,7 +22,7 @@
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
       duration: 1.2,
-      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       direction: "vertical",
       gestureDirection: "vertical",
       smooth: true,
@@ -44,7 +44,7 @@
       requestAnimationFrame(raf);
     }
 
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function (e) {
       const target = e.target.closest('a');
       if (target && target.hash && target.origin === window.location.origin) {
         const hashTarget = document.querySelector(target.hash);
@@ -79,12 +79,12 @@
     }
   }
 
-  /* ---------- Esencia / Conócenos — Animaciones Premium ---------- */
+  /* ---------- Conócenos + Nuestra Esencia — Animaciones Premium ---------- */
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    var esenciaSection = document.querySelector('.esencia');
+    var esenciaSection = document.querySelector('.conoce-esencia-section');
 
     if (esenciaSection) {
-      // Lenis scroll sync (ya debería estar activo globalmente, pero lo aseguramos)
+      // Lenis scroll sync
       if (lenis) {
         lenis.on('scroll', ScrollTrigger.update);
       }
@@ -99,7 +99,7 @@
         }
       });
 
-      // 2. Columnas en cascada (stagger)
+      // 2. Pilares en cascada (stagger)
       gsap.fromTo(
         esenciaSection.querySelectorAll('.esencia__item'),
         { y: 60, opacity: 0 },
@@ -107,7 +107,7 @@
           y: 0,
           opacity: 1,
           duration: 0.9,
-          stagger: 0.2,
+          stagger: 0.18,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: esenciaSection,
@@ -124,7 +124,7 @@
           scale: 1,
           opacity: 1,
           duration: 0.6,
-          stagger: 0.2,
+          stagger: 0.18,
           ease: 'back.out(1.2)',
           scrollTrigger: {
             trigger: esenciaSection,
@@ -148,6 +148,26 @@
             scrollTrigger: {
               trigger: esenciaSection,
               start: 'top 80%'
+            }
+          }
+        );
+      }
+
+      // 5. Rueda de tradición: entrada desde la derecha
+      var traditionWheel = esenciaSection.querySelector('.tradition-wheel');
+      if (traditionWheel) {
+        gsap.fromTo(
+          traditionWheel,
+          { x: 60, opacity: 0, scale: 0.92 },
+          {
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: esenciaSection,
+              start: 'top 75%'
             }
           }
         );
@@ -181,9 +201,9 @@
 
       heroSticky.style.clipPath =
         'polygon(' + clipStart + '% ' + clipStart + '%, ' +
-                     clipEnd + '% ' + clipStart + '%, ' +
-                     clipEnd + '% ' + clipEnd + '%, ' +
-                     clipStart + '% ' + clipEnd + '%)';
+        clipEnd + '% ' + clipStart + '%, ' +
+        clipEnd + '% ' + clipEnd + '%, ' +
+        clipStart + '% ' + clipEnd + '%)';
 
       // Interpolate background-size: 170% → 100% over (scrollHeight + 500)
       var sizeProgress = Math.min(Math.max((scrollY - heroTop) / (scrollHeight + 500), 0), 1);
@@ -438,6 +458,7 @@
         description: "Fermentada lentamente durante 48 horas, nuestra masa es ligera, digestible y llena de sabor. La base perfecta.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 22 2"/><path d="M3.47 11.53c.27 1.05-.05 2.14-.85 2.87-1.14 1.04-2.84 1.11-3.6.14.77-.97.77-2.73 0-3.69-.76-.97-2.46-.9-3.6.14-.8.73-1.12 1.82-.85 2.87"/><path d="M11.53 3.47c1.05.27 2.14-.05 2.87-.85 1.04-1.14 1.11-2.84.14-3.6-.97.77-2.73.77-3.69 0-.97-.76-.9-2.46.14-3.6.73-.8 1.82-1.12 2.87-.85"/></svg>',
         relatedIds: [2, 3],
+        revealTarget: 'reveal-masa',
       },
       {
         id: 2,
@@ -446,6 +467,7 @@
         description: "Alcanzamos los 450°C con leña de olivo para un horneado rápido que sella los aromas y crea bordes perfectos.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
         relatedIds: [1, 4],
+        revealTarget: 'reveal-horno',
       },
       {
         id: 3,
@@ -454,6 +476,7 @@
         description: "Tomates San Marzano DOP, mozzarella fior di latte fresca, albahaca recién cortada. Solo lo mejor.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589c-.26 0-.51.051-.74.144A5.5 5.5 0 0 0 5.253 9.444 4 4 0 0 0 4 17c0 1.104.896 2 2 2h11Z"/><path d="M12 21v-4"/><path d="M7 21v-4"/></svg>',
         relatedIds: [1, 5],
+        revealTarget: 'reveal-ingredientes',
       },
       {
         id: 4,
@@ -462,6 +485,7 @@
         description: "Elaboramos nuestra pasta fresca cada día con sémola de trigo duro y huevos de corral. Textura y sabor inconfundibles.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 21.3a2.1 2.1 0 0 1-3-3L6 7"/><path d="m20.7 3.3-3.9 3.9"/><path d="m3.3 20.7 3.9-3.9"/></svg>',
         relatedIds: [2, 5],
+        revealTarget: 'reveal-pastas',
       },
       {
         id: 5,
@@ -470,6 +494,7 @@
         description: "Selección de carnes maduradas a la parrilla, preparadas con hierbas italianas y servidas en su punto justo.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
         relatedIds: [4, 6],
+        revealTarget: 'reveal-carnes',
       },
       {
         id: 6,
@@ -478,6 +503,7 @@
         description: "Nuestro Diva Bar ofrece combinaciones exclusivas con botánicos premium, maridando con la experiencia italiana.",
         icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M19 3l-7 12-7-12Z"/></svg>',
         relatedIds: [5],
+        revealTarget: 'reveal-cocteleria',
       }
     ];
 
@@ -488,7 +514,7 @@
 
     function updateTransform() {
       rotator.style.transform = 'rotate(' + rotationAngle + 'deg)';
-      cachedNodeContainers.forEach(function(node) {
+      cachedNodeContainers.forEach(function (node) {
         node.style.transform = 'translate(-50%, -50%) rotate(' + (-rotationAngle) + 'deg)';
       });
     }
@@ -496,7 +522,7 @@
     function toggleInterval() {
       if (activeId === null) {
         if (!intervalRef) {
-          intervalRef = setInterval(function() {
+          intervalRef = setInterval(function () {
             rotationAngle = (rotationAngle + 0.12) % 360;
             updateTransform();
           }, 50);
@@ -511,11 +537,11 @@
 
     function updateActiveState() {
       var lines = svgLayer.querySelectorAll('.tradition-wheel__line');
-      
-      cachedNodeContainers.forEach(function(node, index) {
+
+      cachedNodeContainers.forEach(function (node, index) {
         var id = parseInt(node.getAttribute('data-id'), 10);
         var isActive = (activeId === id);
-        
+
         if (isActive) {
           node.classList.add('is-active');
           node.querySelector('.tradition-node').setAttribute('aria-expanded', 'true');
@@ -536,7 +562,7 @@
       svgLayer.innerHTML = '';
       cachedNodeContainers = [];
 
-      pillars.forEach(function(pillar, index) {
+      pillars.forEach(function (pillar, index) {
         var angle = (index / pillars.length) * 2 * Math.PI - Math.PI / 2;
         var x = radius * Math.cos(angle);
         var y = radius * Math.sin(angle);
@@ -553,7 +579,7 @@
 
         // Node container
         var nodeHtml = `
-          <div class="tradition-node-container ${isActive ? 'is-active' : ''}" style="left: calc(50% + ${x}px); top: calc(50% + ${y}px);" data-id="${pillar.id}">
+          <div class="tradition-node-container hover-node ${isActive ? 'is-active' : ''}" style="left: calc(50% + ${x}px); top: calc(50% + ${y}px);" data-id="${pillar.id}" data-target="${pillar.revealTarget}">
             <button class="tradition-node" aria-label="${pillar.title}" aria-expanded="${isActive}">
               ${pillar.icon}
             </button>
@@ -571,10 +597,10 @@
                 <div class="tradition-card__related">
                   <p class="tradition-card__related-title">Conecta con:</p>
                   <div class="tradition-card__badges">
-                    ${pillar.relatedIds.map(function(rid) {
-                      var related = pillars.find(p => p.id === rid);
-                      return related ? `<span class="tradition-card__badge">${related.title}</span>` : '';
-                    }).join('')}
+                    ${pillar.relatedIds.map(function (rid) {
+          var related = pillars.find(p => p.id === rid);
+          return related ? `<span class="tradition-card__badge">${related.title}</span>` : '';
+        }).join('')}
                   </div>
                 </div>
               ` : ''}
@@ -585,17 +611,41 @@
       });
 
       cachedNodeContainers = nodesWrapper.querySelectorAll('.tradition-node-container');
-      
+
       // Initial transform apply
       updateTransform();
 
       // Bind click events
-      cachedNodeContainers.forEach(function(node) {
-        node.querySelector('.tradition-node').addEventListener('click', function(e) {
+      cachedNodeContainers.forEach(function (node) {
+        node.querySelector('.tradition-node').addEventListener('click', function (e) {
           e.stopPropagation();
           var id = parseInt(node.getAttribute('data-id'), 10);
           activeId = activeId === id ? null : id;
           updateActiveState();
+        });
+      });
+
+      // Bind hover reveal events
+      bindHoverReveal();
+    }
+
+    /* ---------- Hover Reveal Logic ---------- */
+    function bindHoverReveal() {
+      var hoverNodes = nodesWrapper.querySelectorAll('.hover-node');
+      hoverNodes.forEach(function (node) {
+        node.addEventListener('mouseenter', function () {
+          var targetId = node.getAttribute('data-target');
+          var targetImg = document.getElementById(targetId);
+          if (targetImg) {
+            targetImg.classList.add('is-visible');
+          }
+        });
+        node.addEventListener('mouseleave', function () {
+          var targetId = node.getAttribute('data-target');
+          var targetImg = document.getElementById(targetId);
+          if (targetImg) {
+            targetImg.classList.remove('is-visible');
+          }
         });
       });
     }
@@ -604,7 +654,7 @@
     toggleInterval();
 
     // Click outside to close
-    container.addEventListener('click', function(e) {
+    container.addEventListener('click', function (e) {
       if (activeId !== null && !e.target.closest('.tradition-node-container')) {
         activeId = null;
         updateActiveState();
@@ -613,12 +663,87 @@
 
     // Handle resize (rebuild layout but keep rotation)
     var resizeTimer;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(buildWheel, 100);
     });
   }
 
+  /* ---------- Menu Tabs Logic ---------- */
+  function initMenuTabs() {
+    var tabBtns = document.querySelectorAll('.menu-tab');
+    var dynamicImg = document.getElementById('menu-dynamic-image');
+
+    if (!tabBtns.length || !dynamicImg) return;
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        // 1. Skip if already active
+        if (btn.classList.contains('is-active')) return;
+
+        // 2. Deactivate all tabs
+        tabBtns.forEach(function (t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-pressed', 'false');
+        });
+
+        // 3. Activate clicked tab
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        // 4. Fade image: out → swap src → in
+        var newSrc = btn.getAttribute('data-image');
+        if (dynamicImg.getAttribute('src') !== newSrc) {
+          dynamicImg.classList.add('is-fading');
+
+          setTimeout(function () {
+            dynamicImg.setAttribute('src', newSrc);
+            dynamicImg.classList.remove('is-fading');
+          }, 300);
+        }
+      });
+    });
+  }
+
+  /* ---------- Location Directory Logic ---------- */
+  function initLocationDirectory() {
+    var rowBtns = document.querySelectorAll('.location-row__trigger');
+    var dynamicImg = document.getElementById('ubicaciones-dynamic-image');
+    var dynamicCaption = document.getElementById('ubicaciones-dynamic-caption');
+
+    if (!rowBtns.length || !dynamicImg) return;
+
+    rowBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.classList.contains('is-active')) return;
+
+        rowBtns.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        var newSrc = btn.getAttribute('data-image');
+        var newCaption = btn.getAttribute('data-caption');
+
+        if (dynamicImg.getAttribute('src') !== newSrc) {
+          dynamicImg.classList.add('is-fading');
+
+          setTimeout(function () {
+            dynamicImg.setAttribute('src', newSrc);
+            dynamicImg.setAttribute('alt', newCaption);
+            if (dynamicCaption) dynamicCaption.textContent = newCaption;
+            dynamicImg.classList.remove('is-fading');
+          }, 300);
+        }
+      });
+    });
+  }
+
+  initMenuTabs();
   initTraditionWheel();
+  initLocationDirectory();
 
 })();

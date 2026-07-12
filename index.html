@@ -24,8 +24,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
@@ -237,153 +236,228 @@
   </section>
 
   <!-- ============================================================
-       NUESTRA ESENCIA
+       CONÓCENOS + NUESTRA ESENCIA — Sección unificada 2 columnas
        ============================================================ -->
-  <section class="section esencia" id="esencia" aria-label="Nuestra Esencia">
-    <div class="container">
-      <h2 class="section__title esencia__reveal-title" data-animate><span class="reveal-text">Conócenos</span></h2>
-      <hr class="section__line" data-animate>
+  <section class="conoce-esencia-section" id="esencia" aria-label="Conócenos y Nuestra Esencia">
+    <div class="conoce-esencia-grid">
 
-      <div class="esencia__grid">
-        <!-- Comida de calidad -->
-        <div class="esencia__item" data-animate>
-          <div class="esencia__icon">
-            <!-- Lucide: Cherry (food/quality icon) -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
-              <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
-              <path d="M7 14c3.22-2.91 4.29-8.75 5.72-12.74" />
-              <path d="M17 14c0-5.34-.93-8.85-4-11.66" />
-              <path d="M22 9c-4.29 0-7.14-2.33-10-7" />
+      <!-- ══════════════════════════════════
+           COLUMNA IZQUIERDA — Conócenos
+           ══════════════════════════════════ -->
+      <div class="conoce-col">
+
+        <!-- Título -->
+        <h2 class="conoce-col__title esencia__reveal-title" data-animate>
+          <span class="reveal-text">Conócenos</span>
+        </h2>
+        <hr class="section__line" data-animate>
+
+        <!-- Tres pilares verticales -->
+        <div class="conoce-pilares">
+
+          <div class="conoce-pilar esencia__item" data-animate>
+            <div class="esencia__icon">
+              <!-- Lucide: Cherry -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
+                <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
+                <path d="M7 14c3.22-2.91 4.29-8.75 5.72-12.74" />
+                <path d="M17 14c0-5.34-.93-8.85-4-11.66" />
+                <path d="M22 9c-4.29 0-7.14-2.33-10-7" />
+              </svg>
+            </div>
+            <div class="conoce-pilar__text">
+              <h3>Comida de calidad</h3>
+              <p>Recetas originales con ingredientes seleccionados uno a uno.</p>
+            </div>
+          </div>
+
+          <div class="conoce-pilar esencia__item" data-animate>
+            <div class="esencia__icon">
+              <!-- Lucide: Leaf -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+            </div>
+            <div class="conoce-pilar__text">
+              <h3>Pasión italiana</h3>
+              <p>Cada plato cuenta una historia de tradición y amor por la cocina.</p>
+            </div>
+          </div>
+
+          <div class="conoce-pilar esencia__item" data-animate>
+            <div class="esencia__icon">
+              <!-- Lucide: Wine -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 22h8" />
+                <path d="M7 10h10" />
+                <path d="M12 15v7" />
+                <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
+              </svg>
+            </div>
+            <div class="conoce-pilar__text">
+              <h3>Servicio excepcional</h3>
+              <p>Una experiencia que va más allá del plato, pensada para ti.</p>
+            </div>
+          </div>
+
+        </div><!-- /.conoce-pilares -->
+
+        <!-- Onda interactiva -->
+        <div class="conoce-final-wrapper">
+          <div class="wave-line-container" aria-hidden="true">
+            <svg class="wave-line-svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+              <path id="wave-path" d="M0 50 Q 500 50, 1000 50" stroke="#FAD261" stroke-width="2" fill="none" />
             </svg>
           </div>
-          <h3>Comida de calidad</h3>
-          <p>Recetas originales con ingredientes seleccionados uno a uno.</p>
-        </div>
-
-        <!-- Pasión italiana -->
-        <div class="esencia__item" data-animate>
-          <div class="esencia__icon">
-            <!-- Lucide: Leaf -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" />
-              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-            </svg>
-          </div>
-          <h3>Pasión italiana</h3>
-          <p>Cada plato cuenta una historia de tradición y amor por la cocina.</p>
-        </div>
-
-        <!-- Servicio excepcional -->
-        <div class="esencia__item" data-animate>
-          <div class="esencia__icon">
-            <!-- Lucide: Wine -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 22h8" />
-              <path d="M7 10h10" />
-              <path d="M12 15v7" />
-              <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
-            </svg>
-          </div>
-          <h3>Servicio excepcional</h3>
-          <p>Una experiencia que va más allá del plato, pensada para ti.</p>
-        </div>
-      </div>
-
-      <p class="esencia__quote" data-animate>
-        Sumérgete en la auténtica experiencia italiana. Te esperamos con los sabores más genuinos,
-        un ambiente cálido y un servicio excepcional. Ven y déjate sorprender.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       NUESTRA TRADICIÓN (RUEDA)
-       ============================================================ -->
-  <section class="section tradicion" id="tradicion" aria-label="Nuestra Tradición">
-    <div class="container">
-      <h2 class="section__title" data-animate>Nuestra Tradición</h2>
-      <hr class="section__line" data-animate>
-
-      <div class="tradition-wheel" id="tradition-wheel" data-animate>
-        <!-- Anillo decorativo -->
-        <div class="tradition-wheel__ring"></div>
-
-        <!-- Centro de la rueda -->
-        <div class="tradition-wheel__center">
-          <div class="tradition-wheel__center-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589c-.26 0-.51.051-.74.144A5.5 5.5 0 0 0 5.253 9.444 4 4 0 0 0 4 17c0 1.104.896 2 2 2h11Z" />
-              <path d="M12 21v-4" />
-              <path d="M7 21v-4" />
-            </svg>
-          </div>
-          <span class="tradition-wheel__center-text">Tradición</span>
-        </div>
-
-        <div id="tradition-rotator" class="tradition-wheel__rotator">
-          <!-- Líneas conectoras SVG -->
-          <svg class="tradition-wheel__svg" width="100%" height="100%" id="tradition-svg">
-            <!-- Las líneas se inyectarán vía JS -->
-          </svg>
-
-          <!-- Nodos y Tarjetas (se inyectan vía JS) -->
-          <div id="tradition-nodes"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       MENÚ / NUESTRA TRADICIÓN (Sección de fotos/menú original)
-       ============================================================ -->
-  <section class="section menu-section" id="menu" aria-label="Menú">
-    <div class="container">
-      <div class="menu__grid">
-        <!-- Left: Image with parallax -->
-        <div class="menu__image-wrapper" data-animate>
-          <img src="pizza3.jpg" alt="Pizza artesanal Diva con ingredientes frescos" loading="lazy" id="parallax-image">
-        </div>
-
-        <!-- Right: Content & Cards -->
-        <div class="menu__content">
-          <h2 data-animate>Menú</h2>
-          <hr class="section__line" data-animate>
-          <p class="menu__intro" data-animate>
-            Cada receta es un homenaje a la cocina italiana más auténtica, preparada con ingredientes
-            de primera calidad y el cariño que solo la tradición puede ofrecer.
+          <!-- Párrafo final -->
+          <p class="esencia__quote" data-animate>
+            Sumérgete en la auténtica experiencia italiana. Te esperamos con los sabores más genuinos,
+            un ambiente cálido y un servicio excepcional. Ven y déjate sorprender.
           </p>
+        </div>
 
-          <div class="menu__cards">
-            <div class="menu-card" data-animate>
-              <h4>Pizzas</h4>
-              <p>Deléitate con nuestras pizzas artesanales, masa fresca, ingredientes de calidad y el auténtico sabor
-                italiano.</p>
+      </div><!-- /.conoce-col (izquierda) -->
+
+      <!-- ══════════════════════════════════
+           COLUMNA DERECHA — Nuestra Esencia
+           ══════════════════════════════════ -->
+      <div class="esencia-col" id="tradicion">
+
+        <!-- Título -->
+        <h2 class="conoce-col__title" data-animate>Nuestra Esencia</h2>
+        <hr class="section__line" data-animate>
+
+        <!-- Rueda de tradición (markup idéntico — el JS la encuentra por ID) -->
+        <div class="esencia-wheel-wrapper">
+          <div class="tradition-wheel" id="tradition-wheel" data-animate>
+            <!-- Contenedor de imágenes Reveal -->
+            <div id="wheel-reveal-container" class="tradition-wheel__reveal-container">
+              <!-- Overlay oscuro para mantener la legibilidad de los textos -->
+              <div class="tradition-wheel__reveal-overlay"></div>
+              <img id="reveal-masa" src="Masa.png" class="reveal-img" alt="Masa Madre">
+              <img id="reveal-horno" src="Horno.png" class="reveal-img" alt="Horno de Leña">
+              <img id="reveal-ingredientes" src="Ingredientes.png" class="reveal-img" alt="Ingredientes Selectos">
+              <img id="reveal-pastas" src="pastas.png" class="reveal-img" alt="Pastas Artesanales">
+              <img id="reveal-carnes" src="Carnes.png" class="reveal-img" alt="Carnes Premium">
+              <img id="reveal-cocteleria" src="Cocteleria.png" class="reveal-img" alt="Coctelería de Autor">
             </div>
-            <div class="menu-card" data-animate>
-              <h4>Pastas</h4>
-              <p>Pastas frescas elaboradas con pasión y recetas tradicionales italianas. Sabor auténtico en cada plato.
-              </p>
+
+            <!-- Anillo decorativo -->
+            <div class="tradition-wheel__ring"></div>
+
+            <!-- Centro de la rueda -->
+            <div class="tradition-wheel__center">
+              <div class="tradition-wheel__center-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589c-.26 0-.51.051-.74.144A5.5 5.5 0 0 0 5.253 9.444 4 4 0 0 0 4 17c0 1.104.896 2 2 2h11Z" />
+                  <path d="M12 21v-4" />
+                  <path d="M7 21v-4" />
+                </svg>
+              </div>
+              <span class="tradition-wheel__center-text">Tradición</span>
             </div>
-            <div class="menu-card" data-animate>
-              <h4>Carnes</h4>
-              <p>Selección de carnes a la parrilla y platos tradicionales italianos con ingredientes de primera calidad.
-              </p>
-            </div>
-            <div class="menu-card" data-animate>
-              <h4>Gin &amp; Tonics</h4>
-              <p>Selección exclusiva de Gin &amp; Tonics premium, preparados con pasión y creatividad. Una experiencia
-                sofisticada.</p>
+
+            <div id="tradition-rotator" class="tradition-wheel__rotator">
+              <!-- Líneas conectoras SVG -->
+              <svg class="tradition-wheel__svg" width="100%" height="100%" id="tradition-svg">
+                <!-- Las líneas se inyectarán vía JS -->
+              </svg>
+
+              <!-- Nodos y Tarjetas (se inyectan vía JS) -->
+              <div id="tradition-nodes"></div>
             </div>
           </div>
+        </div><!-- /.esencia-wheel-wrapper -->
 
-          <a href="#" class="btn btn--outline-dark" data-animate>Ver Carta Completa</a>
+      </div><!-- /.esencia-col (derecha) -->
+
+    </div><!-- /.conoce-esencia-grid -->
+  </section>
+
+
+
+  <!-- ============================================================
+       MENÚ — Sistema de pestañas interactivo
+       ============================================================ -->
+  <section class="menu-tabs-section" id="menu" aria-label="Menú">
+    <div class="container">
+
+      <!-- Título de la sección -->
+      <div class="menu-tabs__header" data-animate>
+        <h2 class="menu-tabs__title">Menú</h2>
+        <div class="menu-tabs__line"></div>
+      </div>
+
+      <!-- Grid 50/50 -->
+      <div class="menu-tabs__grid">
+
+        <!-- Columna izquierda: Imagen dinámica -->
+        <div class="menu-tabs__image-col" data-animate>
+          <div class="menu-tabs__image-frame">
+            <img id="menu-dynamic-image" src="pizza-menu.jpg" alt="Plato destacado del menú" class="menu-tabs__img">
+            <!-- Shimmer overlay durante el fade -->
+            <div class="menu-tabs__img-overlay"></div>
+          </div>
         </div>
+
+        <!-- Columna derecha: Tabs -->
+        <div class="menu-tabs__tabs-col" data-animate>
+
+          <!-- Tab Pizzas (activo por defecto) -->
+          <button class="menu-tab is-active" data-image="pizza-menu.jpg" aria-pressed="true">
+            <span class="menu-tab__accent"></span>
+            <div class="menu-tab__body">
+              <h3 class="menu-tab__title">PIZZAS</h3>
+              <p class="menu-tab__desc">Deléitate con nuestras pizzas artesanales, masa fresca, ingredientes de calidad
+                y el auténtico sabor italiano.</p>
+            </div>
+            <span class="menu-tab__arrow">→</span>
+          </button>
+
+          <!-- Tab Pastas -->
+          <button class="menu-tab" data-image="carnes-menu.jpg" aria-pressed="false">
+            <span class="menu-tab__accent"></span>
+            <div class="menu-tab__body">
+              <h3 class="menu-tab__title">PASTAS</h3>
+              <p class="menu-tab__desc">Pastas frescas elaboradas con pasión y recetas tradicionales italianas. Sabor
+                auténtico en cada plato.</p>
+            </div>
+            <span class="menu-tab__arrow">→</span>
+          </button>
+
+          <!-- Tab Carnes -->
+          <button class="menu-tab" data-image="gin-tonics-menu.jpg" aria-pressed="false">
+            <span class="menu-tab__accent"></span>
+            <div class="menu-tab__body">
+              <h3 class="menu-tab__title">CARNES</h3>
+              <p class="menu-tab__desc">Selección de carnes a la parrilla y platos tradicionales italianos con
+                ingredientes de primera calidad.</p>
+            </div>
+            <span class="menu-tab__arrow">→</span>
+          </button>
+
+          <!-- Tab Gin & Tonics -->
+          <button class="menu-tab" data-image="Cocteleria.png" aria-pressed="false">
+            <span class="menu-tab__accent"></span>
+            <div class="menu-tab__body">
+              <h3 class="menu-tab__title">GIN &amp; TONICS</h3>
+              <p class="menu-tab__desc">Selección exclusiva de Gin &amp; Tonics premium, preparados con pasión y
+                creatividad. Una experiencia sofisticada.</p>
+            </div>
+            <span class="menu-tab__arrow">→</span>
+          </button>
+
+          <!-- CTA -->
+          <a href="#" class="btn btn--outline-dark menu-tabs__cta">Ver Carta Completa</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -392,17 +466,25 @@
        DIVA BAR
        ============================================================ -->
   <section class="diva-bar" id="diva-bar" aria-label="Diva Bar">
-    <div class="diva-bar__bg" role="img" aria-label="Interior del Diva Bar"></div>
-    <div class="diva-bar__overlay"></div>
+    <div class="diva-bar__grid">
 
-    <div class="diva-bar__content" data-animate>
-      <h2>Diva Bar</h2>
-      <p>
-        Descubre nuestra selección exclusiva de Gin &amp; Tonics premium, preparados con pasión
-        y creatividad. Desde los clásicos hasta combinaciones únicas, cada copa es una experiencia
-        refrescante y sofisticada.
-      </p>
-      <a href="#" class="btn btn--red">Explorar Coctelería</a>
+      <!-- Columna izquierda: Texto -->
+      <div class="diva-bar__content" data-animate>
+        <span class="diva-bar__eyebrow">Coctelería de Autor</span>
+        <h2 class="diva-bar__title">Diva<br>Bar</h2>
+        <p class="diva-bar__text">
+          Descubre nuestra selección exclusiva de Gin &amp; Tonics premium, preparados con pasión
+          y creatividad. Desde los clásicos hasta combinaciones únicas, cada copa es una experiencia
+          refrescante y sofisticada.
+        </p>
+        <a href="#menu" class="btn diva-bar__btn">Explorar Coctelería</a>
+      </div>
+
+      <!-- Columna derecha: Imagen -->
+      <div class="diva-bar__media" data-animate>
+        <img src="Cocteleria.png" alt="Coctelería de autor Diva Benidorm" class="diva-bar__img" loading="lazy">
+      </div>
+
     </div>
   </section>
 
@@ -411,167 +493,229 @@
        ============================================================ -->
   <section class="section ubicaciones" id="ubicaciones" aria-label="Ubicaciones">
     <div class="container">
-      <h2 class="section__title" data-animate>Cómo encontrarnos</h2>
-      <p class="section__subtitle" data-animate>Trabajamos para ti todos los días</p>
 
-      <!-- Gallery -->
-      <div class="ubicaciones__gallery" data-animate>
-        <div class="gallery__item">
-          <img src="local.jpeg" alt="Interior restaurante Diva — Ambiente acogedor" loading="lazy">
-        </div>
-        <div class="gallery__item">
-          <img src="local1.jpg" alt="Interior restaurante Diva — Barra y salón" loading="lazy">
-        </div>
-        <div class="gallery__item">
-          <img src="local2.jpg" alt="Interior restaurante Diva — Detalle decoración" loading="lazy">
-        </div>
-        <div class="gallery__item">
-          <img src="local3.jpg" alt="Interior restaurante Diva — Zona de mesas" loading="lazy">
-        </div>
+      <div class="ubicaciones__header">
+        <span class="ubicaciones__eyebrow" data-animate>Seis direcciones, un mismo sabor</span>
+        <h2 class="section__title" data-animate>Cómo encontrarnos</h2>
+        <hr class="section__line" data-animate>
+        <p class="section__subtitle" data-animate>Trabajamos para ti todos los días, repartidos por el corazón de Benidorm.</p>
       </div>
 
-      <!-- Location Cards -->
-      <div class="ubicaciones__cards">
-        <!-- Diva 8 -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Diva 8</h3>
-          <p class="location-card__address">Calle Gerona 8, 03503 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
-          </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
+      <!-- Directorio de locales -->
+      <div class="ubicaciones__directory" data-animate>
+
+        <!-- Imagen dinámica -->
+        <div class="ubicaciones__image-col">
+          <div class="ubicaciones__image-frame">
+            <img id="ubicaciones-dynamic-image" src="local.jpeg" alt="Diva 8 — Calle Gerona" class="ubicaciones__img">
+            <div class="ubicaciones__img-overlay"></div>
+            <span class="ubicaciones__img-caption" id="ubicaciones-dynamic-caption">Diva 8 — Calle Gerona</span>
           </div>
         </div>
 
-        <!-- Casa Diva -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Casa Diva</h3>
-          <p class="location-card__address">Calle Tomás Ortuño 56, 03501 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
-          </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
-          </div>
-        </div>
+        <!-- Lista de locales -->
+        <div class="ubicaciones__list-col">
 
-        <!-- Diva Club -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Diva Club</h3>
-          <p class="location-card__address">Avda. del Mediterráneo 19, 03503 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
+          <div class="location-row">
+            <button class="location-row__trigger is-active" data-image="local.jpeg"
+              data-caption="Diva 8 — Calle Gerona" aria-pressed="true">
+              <span class="location-row__plaque">8</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Diva 8</span>
+                <span class="location-row__address">Calle Gerona 8, 03503 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
           </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
-          </div>
-        </div>
 
-        <!-- Pizzería Diva -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Pizzería Diva</h3>
-          <p class="location-card__address">Plaza de la Creu Alameda 13, 03502 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
+          <div class="location-row">
+            <button class="location-row__trigger" data-image="local1.jpg" data-caption="Casa Diva — Calle Tomás Ortuño"
+              aria-pressed="false">
+              <span class="location-row__plaque">56</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Casa Diva</span>
+                <span class="location-row__address">Calle Tomás Ortuño 56, 03501 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
           </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
-          </div>
-        </div>
 
-        <!-- Diva 15 -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Diva 15</h3>
-          <p class="location-card__address">Calle Gerona 15, 03503 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
+          <div class="location-row">
+            <button class="location-row__trigger" data-image="local2.jpg" data-caption="Diva Club — Avda. del Mediterráneo"
+              aria-pressed="false">
+              <span class="location-row__plaque">19</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Diva Club</span>
+                <span class="location-row__address">Avda. del Mediterráneo 19, 03503 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
           </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
-          </div>
-        </div>
 
-        <!-- Diva 13 -->
-        <div class="location-card" data-animate>
-          <h3 class="location-card__name">Diva 13</h3>
-          <p class="location-card__address">Plaza de la Creu Alameda 13, 03502 Benidorm</p>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>12:00 – 00:00</span>
+          <div class="location-row">
+            <button class="location-row__trigger" data-image="local3.jpg" data-caption="Pizzería Diva — Pza. de la Creu Alameda"
+              aria-pressed="false">
+              <span class="location-row__plaque">13</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Pizzería Diva</span>
+                <span class="location-row__address">Plaza de la Creu Alameda 13, 03502 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
           </div>
-          <div class="location-card__detail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:+34650904402">650 904 402</a>
+
+          <div class="location-row">
+            <button class="location-row__trigger" data-image="local.jpeg" data-caption="Diva 15 — Calle Gerona"
+              aria-pressed="false">
+              <span class="location-row__plaque">15</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Diva 15</span>
+                <span class="location-row__address">Calle Gerona 15, 03503 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
           </div>
+
+          <div class="location-row">
+            <button class="location-row__trigger" data-image="local3.jpg" data-caption="Diva 13 — Pza. de la Creu Alameda"
+              aria-pressed="false">
+              <span class="location-row__plaque">13</span>
+              <span class="location-row__body">
+                <span class="location-row__name">Diva 13</span>
+                <span class="location-row__address">Plaza de la Creu Alameda 13, 03502 Benidorm</span>
+              </span>
+              <span class="location-row__arrow" aria-hidden="true">→</span>
+            </button>
+            <div class="location-row__meta">
+              <span class="location-row__hours">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                12:00 – 00:00
+              </span>
+              <a class="location-row__phone" href="tel:+34650904402">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                650 904 402
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <!-- Google Maps -->
       <div class="ubicaciones__map" data-animate>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3126.5!2d-0.1308!3d38.5411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMyJzI4LjAiTiAwwrAwNyc1MS4wIlc!5e0!3m2!1ses!2ses!4v1700000000000"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa de ubicaciones Diva Benidorm">
-        </iframe>
+        <div class="ubicaciones__map-frame">
+          <span class="ubicaciones__map-corner ubicaciones__map-corner--tl" aria-hidden="true"></span>
+          <span class="ubicaciones__map-corner ubicaciones__map-corner--tr" aria-hidden="true"></span>
+          <span class="ubicaciones__map-corner ubicaciones__map-corner--bl" aria-hidden="true"></span>
+          <span class="ubicaciones__map-corner ubicaciones__map-corner--br" aria-hidden="true"></span>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3126.5!2d-0.1308!3d38.5411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMyJzI4LjAiTiAwwrAwNyc1MS4wIlc!5e0!3m2!1ses!2ses!4v1700000000000"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicaciones Diva Benidorm">
+          </iframe>
+        </div>
+        <div class="ubicaciones__map-caption">
+          <span>Benidorm, Comunidad Valenciana</span>
+          <a href="https://maps.google.com/?q=Diva+Benidorm" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
       </div>
     </div>
   </section>
