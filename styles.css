@@ -573,12 +573,12 @@ body {
 }
 
 .hero__bg--desktop {
-  background-image: url('pizza.jpg');
+  background-image: url('assets/images/pizza.jpg');
   display: block;
 }
 
 .hero__bg--mobile {
-  background-image: url('pizza2.jpg');
+  background-image: url('assets/images/pizza2.jpg');
   display: none;
 }
 
