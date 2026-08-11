@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 /* ─────────────────────────────────────────────
    Types
@@ -78,12 +78,12 @@ const cards: BentoCard[] = [
 /* ─────────────────────────────────────────────
    Shared animation variants
 ───────────────────────────────────────────── */
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 48 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, delay, ease: [0.22, 0.61, 0.36, 1] },
+    transition: { duration: 0.85, delay, ease: [0.22, 0.61, 0.36, 1] as const },
   }),
 };
 
