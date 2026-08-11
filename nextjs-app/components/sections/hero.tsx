@@ -106,16 +106,18 @@ export function Hero() {
               <br />
               Ven y disfruta.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-5 md:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+              {/* Primary — solid gold pill */}
               <a
                 href="#menu"
-                className="rounded border-[1.5px] border-accent-gold bg-accent-gold px-9 py-4 font-sans text-xs uppercase tracking-[2px] text-[#1A1A1A] transition-transform hover:scale-[1.02] hover:border-accent-red hover:bg-accent-red hover:text-foreground"
+                className="rounded-full bg-accent-gold px-8 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.15em] text-black transition-transform duration-300 hover:scale-105"
               >
                 Explorar Menú
               </a>
+              {/* Secondary — ghost pill */}
               <a
                 href="#contacto"
-                className="rounded border-[1.5px] border-accent-red px-9 py-4 font-sans text-xs uppercase tracking-[2px] text-foreground transition-transform hover:scale-[1.02] hover:bg-accent-red"
+                className="rounded-full border border-white/30 px-8 py-3.5 font-sans text-xs font-bold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-white/10"
               >
                 Reservar Mesa
               </a>

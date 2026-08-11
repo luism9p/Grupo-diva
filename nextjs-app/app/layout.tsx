@@ -78,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${anton.variable} ${lato.variable} h-full antialiased`}>
+    <html lang="es" className={`${anton.variable} ${lato.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

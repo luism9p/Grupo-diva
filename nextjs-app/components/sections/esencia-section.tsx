@@ -1,165 +1,252 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
-import { TraditionWheel } from "@/components/sections/tradition-wheel";
+import Image from "next/image";
+import { motion } from "motion/react";
 
-const pilares = [
+/* ─────────────────────────────────────────────
+   Types
+───────────────────────────────────────────── */
+interface BentoCard {
+  id: string;
+  title: string;
+  label?: string;
+  description?: string;
+  image: string;
+  span: string;
+  stat?: string;
+  statLabel?: string;
+}
+
+/* ─────────────────────────────────────────────
+   Card data  — swap /placeholderN.jpg for real shots
+───────────────────────────────────────────── */
+const cards: BentoCard[] = [
   {
-    title: "Comida de calidad",
-    description: "Recetas originales con ingredientes seleccionados uno a uno.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
-        <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.24-5-5-5s-5 2.24-5 5Z" />
-        <path d="M7 14c3.22-2.91 4.29-8.75 5.72-12.74" />
-        <path d="M17 14c0-5.34-.93-8.85-4-11.66" />
-        <path d="M22 9c-4.29 0-7.14-2.33-10-7" />
-      </svg>
-    ),
+    id: "calidad",
+    title: "Comida de Calidad",
+    label: "Ingredientes",
+    description:
+      "Cada ingrediente es seleccionado a mano: harinas de molino, tomates San Marzano DOP y mozzarella de búfala campana. Sin atajos, sin compromiso.",
+    image: "/Ingredientes.png",
+    span: "md:col-span-2 md:row-span-2",
+    stat: "100%",
+    statLabel: "Ingredientes artesanales",
   },
   {
-    title: "Pasión italiana",
-    description: "Cada plato cuenta una historia de tradición y amor por la cocina.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" />
-        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-      </svg>
-    ),
+    id: "horno",
+    title: "Horno de Leña",
+    label: "480 °C",
+    description: "Cocción en menos de 90 segundos. El fuego hace lo demás.",
+    image: "/Horno.png",
+    span: "md:col-span-1 md:row-span-1",
   },
   {
-    title: "Servicio excepcional",
-    description: "Una experiencia que va más allá del plato, pensada para ti.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 22h8" />
-        <path d="M7 10h10" />
-        <path d="M12 15v7" />
-        <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" />
-      </svg>
-    ),
+    id: "masa",
+    title: "Masa Madre",
+    label: "72 h de fermentación",
+    description: "Lenta maduración para una pizza ligera, crujiente y llena de carácter.",
+    image: "/Masa.png",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    id: "pasion",
+    title: "Pasión Italiana",
+    label: "Tradición",
+    description:
+      "Recetas heredadas de la nonna. El alma de Nápoles en cada bocado, a orillas del Mediterráneo.",
+    image: "/pizza.jpg",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    id: "cocteles",
+    title: "Coctelería de Autor",
+    label: "Bar & Lounge",
+    description: "Combinados únicos con licores premium e ingredientes de temporada.",
+    image: "/Cocteleria.png",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    id: "servicio",
+    title: "Servicio Excepcional",
+    label: "Experiencia",
+    description: "Un equipo apasionado que convierte cada visita en un recuerdo.",
+    image: "/local1.jpg",
+    span: "md:col-span-1 md:row-span-1",
   },
 ];
 
-const pilarVariants: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: (i: number) => ({
+/* ─────────────────────────────────────────────
+   Shared animation variants
+───────────────────────────────────────────── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 48 },
+  visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, delay: i * 0.18, ease: "easeOut" },
+    transition: { duration: 0.85, delay, ease: [0.22, 0.61, 0.36, 1] },
   }),
 };
 
-const iconVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, delay: i * 0.18, ease: "backOut" },
-  }),
-};
+/* ─────────────────────────────────────────────
+   BentoCardItem
+───────────────────────────────────────────── */
+function BentoCardItem({ card, index }: { card: BentoCard; index: number }) {
+  const isHero = card.id === "calidad";
 
+  return (
+    <motion.article
+      className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-[#111111] ${card.span}`}
+      custom={index * 0.08}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      aria-label={card.title}
+    >
+      {/* Background image with zoom-on-hover */}
+      <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <Image
+          src={card.image}
+          alt={card.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover opacity-40 transition-transform duration-700 ease-out group-hover:scale-105"
+          priority={isHero}
+        />
+        {/* Gradient overlay for text legibility */}
+        <div
+          className={`absolute inset-0 ${
+            isHero
+              ? "bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+              : "bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          }`}
+        />
+      </div>
+
+      {/* Card content */}
+      <div
+        className={`relative z-10 flex h-full flex-col justify-end ${
+          isHero ? "min-h-[420px] p-8 md:p-10" : "min-h-[200px] p-6"
+        }`}
+      >
+        {/* Eyebrow label */}
+        {card.label && (
+          <span className="mb-2 block font-sans text-xs font-light uppercase tracking-[0.2em] text-accent-gold/80">
+            {card.label}
+          </span>
+        )}
+
+        {/* Big stat — hero only */}
+        {card.stat && (
+          <p className="mb-1 font-serif text-5xl leading-none tracking-tighter text-accent-gold lg:text-6xl">
+            {card.stat}
+          </p>
+        )}
+        {card.statLabel && (
+          <p className="mb-4 font-sans text-xs font-light uppercase tracking-widest text-accent-gold/60">
+            {card.statLabel}
+          </p>
+        )}
+
+        {/* Title */}
+        <h3
+          className={`font-serif leading-tight tracking-tight text-foreground normal-case ${
+            isHero ? "text-3xl lg:text-4xl" : "text-xl"
+          }`}
+        >
+          {card.title}
+        </h3>
+
+        {/* Description */}
+        {card.description && (
+          <p
+            className={`mt-3 font-sans font-light leading-relaxed text-gray-400 ${
+              isHero ? "max-w-xs text-sm md:text-base" : "line-clamp-2 text-sm"
+            }`}
+          >
+            {card.description}
+          </p>
+        )}
+
+        {/* Bottom border accent on hover */}
+        <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-accent-gold/60 transition-all duration-500 ease-out group-hover:w-full" />
+      </div>
+
+      {/* Glass ring */}
+      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.04]" />
+    </motion.article>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   EsenciaSection
+───────────────────────────────────────────── */
 export function EsenciaSection() {
   return (
     <section
-      className="bg-background py-[100px] lg:py-[140px]"
       id="esencia"
-      aria-label="Conócenos y Nuestra Esencia"
+      aria-label="Nuestra Esencia — Pilares de Grupo Diva"
+      className="bg-background py-[100px] lg:py-[140px]"
     >
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-15 px-6 md:px-10 lg:grid-cols-2 lg:gap-20">
-        {/* Columna izquierda — Conócenos */}
-        <div className="flex flex-col gap-8">
-          <div>
-            <h2 className="overflow-hidden text-[clamp(2rem,4vw,3rem)] leading-tight tracking-wide text-center md:text-left">
-              <motion.span
-                className="block"
-                initial={{ y: "105%" }}
-                whileInView={{ y: "0%" }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, ease: [0.22, 0.61, 0.36, 1] }}
-              >
-                Conócenos
-              </motion.span>
-            </h2>
-            <motion.hr
-              className="mx-auto mt-6 h-0.5 max-w-12 border-none bg-accent-gold md:mx-0"
-              initial={{ width: 0 }}
-              whileInView={{ width: 48 }}
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+
+        {/* Section header */}
+        <div className="mb-16 flex flex-col gap-6 lg:mb-20">
+
+          {/* Eyebrow */}
+          <motion.span
+            className="block font-sans text-xs font-light uppercase tracking-[0.25em] text-accent-gold/70"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            Lo que nos define
+          </motion.span>
+
+          {/* Massive heading with reveal clip */}
+          <div className="overflow-hidden">
+            <motion.h2
+              className="font-serif text-5xl leading-none tracking-tighter text-foreground lg:text-7xl"
+              initial={{ y: "105%" }}
+              whileInView={{ y: "0%" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1, ease: [0.22, 0.61, 0.36, 1] }}
+            >
+              Nuestra Esencia
+            </motion.h2>
+          </div>
+
+          {/* Gold rule + intro copy */}
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <motion.div
+              className="h-[1px] origin-left bg-accent-gold"
+              style={{ width: "64px" }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
             />
-          </div>
-
-          <div className="flex flex-col gap-8">
-            {pilares.map((pilar, i) => (
-              <motion.div
-                key={pilar.title}
-                className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left"
-                custom={i}
-                variants={pilarVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-              >
-                <motion.div
-                  custom={i}
-                  variants={iconVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-accent-gold/50"
-                >
-                  <span className="h-9 w-9 text-accent-gold [&>svg]:h-full [&>svg]:w-full">
-                    {pilar.icon}
-                  </span>
-                </motion.div>
-                <div>
-                  <h3 className="mb-1.5 font-serif text-lg tracking-wide text-foreground normal-case">
-                    {pilar.title}
-                  </h3>
-                  <p className="font-sans text-sm leading-relaxed font-light text-muted-foreground">
-                    {pilar.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex flex-col items-center gap-6 pt-4">
-            <svg
-              className="h-px w-full max-w-[420px] text-accent-gold/60"
-              viewBox="0 0 1000 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path d="M0 50 Q 500 50, 1000 50" stroke="currentColor" strokeWidth={2} fill="none" />
-            </svg>
             <motion.p
-              className="max-w-[800px] border-t border-accent-red/30 py-8 text-center font-serif text-xl leading-relaxed text-muted-foreground italic normal-case"
-              initial={{ opacity: 0, y: 40 }}
+              className="max-w-[480px] font-sans text-sm font-light leading-relaxed text-gray-400 md:text-right"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
             >
-              Sumérgete en la auténtica experiencia italiana. Te esperamos con los sabores más
-              genuinos, un ambiente cálido y un servicio excepcional. Ven y déjate sorprender.
+              Pasión, fuego y tradición en cada plato. Elaborado con los mejores
+              ingredientes, desde el corazón de Nápoles hasta Benidorm.
             </motion.p>
           </div>
         </div>
 
-        {/* Columna derecha — Nuestra Esencia (rueda) */}
-        <div className="flex flex-col gap-8" id="tradicion">
-          <div>
-            <h2 className="text-center text-[clamp(2rem,4vw,3rem)] leading-tight tracking-wide md:text-left">
-              Nuestra Esencia
-            </h2>
-            <hr className="mx-auto mt-6 h-0.5 w-12 border-none bg-accent-gold md:mx-0" />
-          </div>
-
-          <div className="flex w-full justify-center">
-            <TraditionWheel />
-          </div>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+          {cards.map((card, i) => (
+            <BentoCardItem key={card.id} card={card} index={i} />
+          ))}
         </div>
+
       </div>
     </section>
   );

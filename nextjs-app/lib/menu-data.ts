@@ -16,7 +16,7 @@ export const menuTabs: MenuTab[] = [
     title: "Pizzas",
     description:
       "Deléitate con nuestras pizzas artesanales, masa fresca, ingredientes de calidad y el auténtico sabor italiano.",
-    image: "/pizza-menu.jpg",
+    image: "/pizza.jpg",
   },
   {
     id: "pastas",
