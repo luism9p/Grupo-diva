@@ -71,6 +71,7 @@ export function Hero() {
             alt="Pizza artesanal italiana"
             fill
             fetchPriority="high"
+            loading="eager"
             sizes="100vw"
             className="object-cover [will-change:transform]"
             style={{ transform: "scale(1.7)" }}
@@ -83,6 +84,7 @@ export function Hero() {
             alt="Pizza artesanal italiana"
             fill
             fetchPriority="high"
+            loading="eager"
             sizes="100vw"
             className="object-cover [will-change:transform]"
             style={{ transform: "scale(1.7)" }}
