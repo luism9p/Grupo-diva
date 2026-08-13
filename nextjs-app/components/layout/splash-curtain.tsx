@@ -42,7 +42,7 @@ export function SplashCurtain() {
           src="/Grupo-diva-logo-white.png"
           alt="Diva Benidorm"
           width={220}
-          height={70}
+          height={220}
           className="mb-12 h-auto w-[220px] animate-[splashFadeInUp_0.8s_ease-out_0.2s_both]"
           fetchPriority="high"
         />

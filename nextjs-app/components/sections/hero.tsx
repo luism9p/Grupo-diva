@@ -142,9 +142,9 @@ export function Hero() {
               <Image
                 src="/hero.png"
                 alt="Pizza Premium Diva Benidorm"
-                width={800}
-                height={800}
-                sizes="(min-width: 768px) 50vw, 100vw"
+                width={946}
+                height={656}
+                sizes="(min-width: 1440px) 720px, (min-width: 768px) 50vw, 100vw"
                 className="h-auto w-full animate-[float_6s_ease-in-out_infinite] object-contain drop-shadow-[0px_35px_35px_rgba(0,0,0,0.6)]"
                 fetchPriority="high"
               />
