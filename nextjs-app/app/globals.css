@@ -169,23 +169,10 @@
 }
 
 /* ---------- Pill nav (desktop links) ----------
-   Ported from React Bits' PillNav. The expanding "hover-circle" needs
-   per-pill geometry (it depends on each pill's rendered width/height), so
-   that part is computed once in JS and written as CSS custom properties on
-   each .pill element; the actual hover reveal itself is plain CSS so it
-   never depends on JS timing. */
-.pill-nav-bar {
-  background: var(--pn-base);
-}
-
-.pill {
-  position: relative;
-  overflow: hidden;
-  background: var(--pn-pill-bg);
-  color: var(--pn-pill-text);
-}
-
-.pill.is-active::after {
+   Background + hover colors live as Tailwind utilities directly on the pill
+   in header.tsx. The only thing that still needs real CSS is the active-link
+   dot, since Tailwind has no clean way to position a `::after` this way. */
+.is-active::after {
   content: "";
   position: absolute;
   bottom: -6px;
@@ -194,58 +181,7 @@
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: var(--pn-base);
+  background: var(--accent-gold);
   transform: translateX(-50%);
 }
 
-.pill-hover-circle {
-  position: absolute;
-  left: 50%;
-  bottom: var(--circle-bottom, 0px);
-  z-index: 1;
-  width: var(--circle-d, 100%);
-  height: var(--circle-d, 100%);
-  border-radius: 9999px;
-  background: var(--pn-base);
-  transform: translateX(-50%) scale(0);
-  transform-origin: 50% var(--circle-origin-y, 50%);
-  transition: transform 0.3s ease;
-  pointer-events: none;
-}
-
-.pill:hover .pill-hover-circle,
-.pill:focus-visible .pill-hover-circle {
-  transform: translateX(-50%) scale(1.2);
-}
-
-.pill-label {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.pill:hover .pill-label,
-.pill:focus-visible .pill-label {
-  transform: translateY(calc(-1 * (var(--pill-h, 20px) + 8px)));
-}
-
-.pill-label-hover {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 3;
-  display: inline-block;
-  color: var(--pn-hover-text);
-  opacity: 0;
-  transform: translateY(calc(var(--pill-h, 20px) + 12px));
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.pill:hover .pill-label-hover,
-.pill:focus-visible .pill-label-hover {
-  opacity: 1;
-  transform: translateY(0);
-}

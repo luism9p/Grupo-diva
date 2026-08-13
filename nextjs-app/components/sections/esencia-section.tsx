@@ -204,18 +204,16 @@ export function EsenciaSection() {
             Lo que nos define
           </motion.span>
 
-          {/* Massive heading with reveal clip */}
-          <div className="overflow-hidden">
-            <motion.h2
-              className="font-serif text-5xl leading-none tracking-tighter text-foreground lg:text-7xl"
-              initial={{ y: "105%" }}
-              whileInView={{ y: "0%" }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1, ease: [0.22, 0.61, 0.36, 1] }}
-            >
-              Nuestra Esencia
-            </motion.h2>
-          </div>
+          {/* Massive heading */}
+          <motion.h2
+            className="font-serif text-5xl leading-none tracking-tighter text-foreground lg:text-7xl"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            Nuestra Esencia
+          </motion.h2>
 
           {/* Gold rule + intro copy */}
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

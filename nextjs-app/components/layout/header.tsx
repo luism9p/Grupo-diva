@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useLenis } from "lenis/react";
 import { navLinks } from "@/lib/nav-links";
@@ -9,22 +9,9 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 
 const HEADER_HEIGHT = 68;
 
-// The PillNav "base"/"pill" color mapping: the bar + expanding hover-circle +
-// active dot use gold (the site's one bright accent), each pill rests on a
-// dark card background, and the label swaps to dark text once the gold
-// circle rises to cover it — the same gold-fill hover pattern already used
-// on buttons across the site.
-const PILL_NAV_VARS = {
-  "--pn-base": "var(--accent-gold)",
-  "--pn-pill-bg": "var(--card)",
-  "--pn-pill-text": "var(--foreground)",
-  "--pn-hover-text": "#1A1A1A",
-} as React.CSSProperties;
-
 export function Header() {
   const [activeHash, setActiveHash] = useState("#inicio");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
   // Lenis takes over scrolling in root mode, so the native `window` "scroll"
   // event never fires — read the scroll position through Lenis instead. This
@@ -45,35 +32,6 @@ export function Header() {
         break;
       }
     }
-  }, []);
-
-  // Per-pill "hover-circle" geometry (React Bits' PillNav): the circle needs
-  // to expand from a bottom-center point and just cover the pill, which
-  // depends on each pill's actual rendered size — computed here and written
-  // as CSS custom properties, then the hover reveal itself is plain CSS.
-  useLayoutEffect(() => {
-    function layout() {
-      pillRefs.current.forEach((pill) => {
-        if (!pill) return;
-        const { width: w, height: h } = pill.getBoundingClientRect();
-        if (!w || !h) return;
-
-        const R = (w * w / 4 + h * h) / (2 * h);
-        const D = Math.ceil(2 * R) + 2;
-        const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
-        const originY = D - delta;
-
-        pill.style.setProperty("--circle-d", `${D}px`);
-        pill.style.setProperty("--circle-bottom", `${-delta}px`);
-        pill.style.setProperty("--circle-origin-y", `${originY}px`);
-        pill.style.setProperty("--pill-h", `${h}px`);
-      });
-    }
-
-    layout();
-    window.addEventListener("resize", layout);
-    document.fonts?.ready?.then(layout).catch(() => {});
-    return () => window.removeEventListener("resize", layout);
   }, []);
 
   useEffect(() => {
@@ -106,38 +64,28 @@ export function Header() {
               alt="Grupo Diva Logo"
               width={96}
               height={96}
-              className="h-11 w-11"
+              className="h-30 w-30"
               priority
             />
           </a>
 
           <nav
-            className="pill-nav-bar hidden h-14 items-stretch gap-1 rounded-full p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)] lg:flex"
+            className="hidden h-14 items-stretch gap-1 rounded-full bg-transparent p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)] lg:flex"
             role="navigation"
             aria-label="Navegación principal"
-            style={PILL_NAV_VARS}
           >
-            {navLinks.map((link, i) => {
+            {navLinks.map((link) => {
               const isActive = activeHash === link.href;
               return (
                 <a
                   key={link.href}
-                  ref={(el) => {
-                    pillRefs.current[i] = el;
-                  }}
                   href={link.href}
                   className={cn(
-                    "pill flex items-center justify-center rounded-full px-5 font-sans text-[0.722rem] font-semibold tracking-wider uppercase",
+                    "relative flex items-center justify-center rounded-full bg-accent-gold px-5 font-sans text-[0.722rem] font-semibold tracking-wider text-[#1A1A1A] uppercase transition-colors duration-300 hover:bg-black hover:text-foreground",
                     isActive && "is-active"
                   )}
                 >
-                  <span className="pill-hover-circle" aria-hidden="true" />
-                  <span className="relative inline-block">
-                    <span className="pill-label">{link.label}</span>
-                    <span className="pill-label-hover" aria-hidden="true">
-                      {link.label}
-                    </span>
-                  </span>
+                  {link.label}
                 </a>
               );
             })}

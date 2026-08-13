@@ -33,6 +33,8 @@ const SEPARATORS: Record<string, { image: string; alt: string; caption: string }
 export function CartaSection() {
   const [activeSlug, setActiveSlug] = useState(carta[0].slug);
   const tabRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const tabsScrollRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
 
   // Lenis takes over scrolling in root mode, so the native `window` "scroll"
   // event never fires — read the scroll position through Lenis instead.
@@ -53,12 +55,25 @@ export function CartaSection() {
     }
   }, []);
 
+  // Keep the active pill visible within the horizontally-scrolling tab bar.
+  // This must only ever touch that bar's own `scrollLeft` — `scrollIntoView`
+  // on the pill itself was the bug: on first mount (or whenever the section
+  // is still off-screen) the browser has to scroll SOME ancestor to satisfy
+  // it, and with nothing constraining it that ancestor was the whole page,
+  // yanking a fresh page load straight down to the Carta section.
   useEffect(() => {
-    tabRefs.current[activeSlug]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    const container = tabsScrollRef.current;
+    const activeTab = tabRefs.current[activeSlug];
+    if (!container || !activeTab) return;
+
+    const target =
+      activeTab.offsetLeft - container.clientWidth / 2 + activeTab.clientWidth / 2;
+    container.scrollTo({ left: target, behavior: "smooth" });
   }, [activeSlug]);
 
   return (
@@ -103,7 +118,10 @@ export function CartaSection() {
 
       {/* Sticky category nav — horizontally scrollable on mobile */}
       <div className="sticky top-20 z-30 border-b border-accent-gold/15 bg-background/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1200px] gap-2 overflow-x-auto px-6 py-4 [scrollbar-width:none] md:px-8 [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={tabsScrollRef}
+          className="mx-auto flex max-w-[1200px] gap-2 overflow-x-auto px-6 py-4 [scrollbar-width:none] md:px-8 [&::-webkit-scrollbar]:hidden"
+        >
           {carta.map((cat) => {
             const isActive = cat.slug === activeSlug;
             return (
