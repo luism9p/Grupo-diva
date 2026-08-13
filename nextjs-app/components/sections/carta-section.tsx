@@ -86,7 +86,6 @@ export function CartaSection() {
           fill
           sizes="100vw"
           className="object-cover"
-          priority={false}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20" />
         <div className="relative z-[1] mx-auto w-full max-w-[1200px] px-6 pb-12 md:px-8 md:pb-16">

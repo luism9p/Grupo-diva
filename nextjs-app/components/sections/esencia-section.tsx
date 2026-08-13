@@ -111,7 +111,7 @@ function BentoCardItem({ card, index }: { card: BentoCard; index: number }) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover opacity-40 transition-transform duration-700 ease-out group-hover:scale-105"
-          priority={isHero}
+          fetchPriority={isHero ? "high" : undefined}
         />
         {/* Gradient overlay for text legibility */}
         <div

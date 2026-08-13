@@ -44,7 +44,7 @@ export function SplashCurtain() {
           width={220}
           height={70}
           className="mb-12 h-auto w-[220px] animate-[splashFadeInUp_0.8s_ease-out_0.2s_both]"
-          priority
+          fetchPriority="high"
         />
         <div className="flex flex-col items-center gap-4 animate-[splashFadeIn_0.6s_ease-out_0.7s_both]">
           <span className="font-sans text-sm font-light tracking-[0.25em] text-muted-foreground uppercase">

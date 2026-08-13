@@ -175,7 +175,6 @@ export function MenuSection() {
                       fill
                       sizes="40vw"
                       className="object-cover"
-                      priority
                     />
                     {/* Bottom fade into page background */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />

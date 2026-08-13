@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Anton, Lato } from "next/font/google";
-import Footer4 from "@/components/ui/footer-section-4";
 import { Header } from "@/components/layout/header";
 import { SplashCurtain } from "@/components/layout/splash-curtain";
 import { LenisProvider } from "@/components/layout/lenis-provider";
 import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { locations } from "@/lib/locations";
 import "./globals.css";
+
+// Footer is the last thing on the page — still server-rendered, just split
+// into its own JS chunk so it doesn't compete with the Hero for bandwidth.
+const Footer4 = dynamic(() => import("@/components/ui/footer-section-4"));
 
 const anton = Anton({
   variable: "--font-anton",

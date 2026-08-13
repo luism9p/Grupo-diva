@@ -62,10 +62,10 @@ export function Header() {
             <Image
               src="/Grupo-diva-logo-white.png"
               alt="Grupo Diva Logo"
-              width={96}
-              height={96}
-              className="h-30 w-30"
-              priority
+              width={88}
+              height={88}
+              className="h-11 w-11"
+              fetchPriority="high"
             />
           </a>
 

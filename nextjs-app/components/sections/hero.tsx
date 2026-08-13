@@ -20,14 +20,14 @@ function buildClipPath(start: number, end: number) {
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
-  const bgDesktopRef = useRef<HTMLDivElement>(null);
-  const bgMobileRef = useRef<HTMLDivElement>(null);
+  const bgDesktopRef = useRef<HTMLImageElement>(null);
+  const bgMobileRef = useRef<HTMLImageElement>(null);
 
   // Lenis takes over scrolling in root mode, so the native `window` "scroll"
   // event never fires — read the scroll position through Lenis instead. This
-  // runs on every Lenis tick (~60/sec), so the clip-path/background-size are
-  // written straight to the DOM here instead of through React state — piping
-  // them through setState would re-render the component every tick, which is
+  // runs on every Lenis tick (~60/sec), so the clip-path/scale are written
+  // straight to the DOM here instead of through React state — piping them
+  // through setState would re-render the component every tick, which is
   // exactly what tripped "Maximum update depth exceeded" in production.
   useLenis((lenis) => {
     const section = sectionRef.current;
@@ -42,10 +42,13 @@ export function Hero() {
     const clipEnd = CLIP_END + (100 - CLIP_END) * progress;
     sticky.style.clipPath = buildClipPath(clipStart, clipEnd);
 
+    // Same 170% → 100% zoom the CSS `background-size` version used, now
+    // driving a `transform: scale()` on the `next/image` <img> instead —
+    // `object-cover` has no animatable "size" the way a CSS background does.
     const sizeProgress = Math.min(Math.max((scrollY - heroTop) / (SCROLL_HEIGHT + 500), 0), 1);
-    const bgSize = `${170 - 70 * sizeProgress}%`;
-    if (bgDesktopRef.current) bgDesktopRef.current.style.backgroundSize = bgSize;
-    if (bgMobileRef.current) bgMobileRef.current.style.backgroundSize = bgSize;
+    const scale = 1.7 - 0.7 * sizeProgress;
+    if (bgDesktopRef.current) bgDesktopRef.current.style.transform = `scale(${scale})`;
+    if (bgMobileRef.current) bgMobileRef.current.style.transform = `scale(${scale})`;
   }, []);
 
   return (
@@ -61,20 +64,30 @@ export function Hero() {
         className="sticky top-0 flex h-dvh min-h-[700px] w-full items-start justify-center bg-black pt-20 [will-change:clip-path] md:items-center md:pt-0"
         style={{ clipPath: buildClipPath(CLIP_START, CLIP_END) }}
       >
-        <div
-          ref={bgDesktopRef}
-          className="absolute inset-0 z-0 hidden bg-center bg-no-repeat [will-change:background-size] md:block"
-          style={{ backgroundImage: "url('/pizza.jpg')", backgroundSize: "170%" }}
-          role="img"
-          aria-label="Pizza artesanal italiana"
-        />
-        <div
-          ref={bgMobileRef}
-          className="absolute inset-0 z-0 block bg-center bg-no-repeat [will-change:background-size] md:hidden"
-          style={{ backgroundImage: "url('/pizza-mobile.jpg')", backgroundSize: "170%" }}
-          role="img"
-          aria-label="Pizza artesanal italiana"
-        />
+        <div className="absolute inset-0 z-0 hidden md:block">
+          <Image
+            ref={bgDesktopRef}
+            src="/pizza.jpg"
+            alt="Pizza artesanal italiana"
+            fill
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover [will-change:transform]"
+            style={{ transform: "scale(1.7)" }}
+          />
+        </div>
+        <div className="absolute inset-0 z-0 block md:hidden">
+          <Image
+            ref={bgMobileRef}
+            src="/pizza-mobile.jpg"
+            alt="Pizza artesanal italiana"
+            fill
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover [will-change:transform]"
+            style={{ transform: "scale(1.7)" }}
+          />
+        </div>
         <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/65 to-black/40" />
 
         <div className="relative z-[2] mx-auto flex w-full max-w-[1440px] flex-col items-center px-6 md:flex-row">
@@ -131,8 +144,9 @@ export function Hero() {
                 alt="Pizza Premium Diva Benidorm"
                 width={800}
                 height={800}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="h-auto w-full animate-[float_6s_ease-in-out_infinite] object-contain drop-shadow-[0px_35px_35px_rgba(0,0,0,0.6)]"
-                priority
+                fetchPriority="high"
               />
             </div>
           </div>

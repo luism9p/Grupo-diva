@@ -160,7 +160,6 @@ export function DivaBarSection() {
                   fill
                   sizes="(min-width: 1024px) 45vw"
                   className="object-cover"
-                  priority
                 />
                 {/* Left edge fade to blend with text glass block */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#090909]/70 via-transparent to-transparent" />
